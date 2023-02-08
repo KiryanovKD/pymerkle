@@ -65,18 +65,7 @@ class HashEngine:
     """
 
     def __init__(self, hash_func, encoding='utf-8', security=True):
-
-        for (attr, provided, supported) in (
-                #('algorithm', algorithm, SUPPORTED_ALGORITHMS),
-                ('encoding', encoding, SUPPORTED_ENCODINGS)):
-
-            _provided = provided.lower().replace('-', '_')
-
-            if _provided not in supported:
-                raise UnsupportedParameter(f'{provided} is not supported')
-
-            setattr(self, attr, _provided)
-
+        self.encoding = encoding
         self.security = security
         self.hash_func = hash_func
 
